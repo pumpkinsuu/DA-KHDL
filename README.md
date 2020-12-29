@@ -5,9 +5,15 @@ MSSV: 1712358   Họ và tên: Nguyễn Minh Đức
 MSSV: 1712379   Họ và tên: Đặng Thành Duy
 </pre>
 
+Phân công công việc:
+
 # Chủ đề: Dự báo thời tiết
 
-I.  Crawl:
+I.  Câu hỏi:
+
+II.  Ý nghĩa:
+
+III.  Cách thức thu thập dữ liệu:
 - Chọn https://www.wunderground.com để lấy dữ liệu. Trang này có rất nhiều trạm thời tiết để lấy dữ liệu và độ chính xác khá cao. Ngoài ra có thể crawl api và html nên dữ liệu crawl bằng 2 cách sẽ đồng nhất.
 - Dữ liệu được lấy trong 10 năm từ 2010 đến 2020.
 - Dữ liệu được lấy từ trạm thời tiết ở sân bay Tân Sơn Nhất(VVTS).
@@ -34,6 +40,12 @@ I.  Crawl:
 - Dữ liệu sẽ được lưu trong ở [data_html/data.csv](data_html/data.csv).
 - Lấy được tổng cộng 171694 hàng dữ liệu trong 22 phút. Tổng thời gian crawl khoảng 1 giờ 20 phút.
 
-II.  Preprocessing:
+IV.  Tiền xử lý:
 
-III.  Model:
+V.  Dự đoán:
+
+VI.  Tổng quan dữ liệu:
+
+VII.  Tự đánh giá:
+
+VIII.  Hướng dẫn chạy các file notebook:
