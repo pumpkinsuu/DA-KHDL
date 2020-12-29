@@ -1,2 +1,1 @@
-# DA-KHDL
-Đồ án khoa học dữ liệu
+# Đồ án khoa học dữ liệu
