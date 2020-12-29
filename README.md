@@ -1,8 +1,8 @@
 # Đồ án khoa học dữ liệu
 
-Chủ đề: Dự báo thời tiết
+# Chủ đề: Dự báo thời tiết
 
 <pre>
 MSSV: 1712358\t Họ và tên: Nguyễn Minh Đức  
 MSSV: 1712379\t Họ và tên: Đặng Thành Duy
-<\pre>
+</pre>
