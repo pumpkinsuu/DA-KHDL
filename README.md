@@ -45,7 +45,23 @@ IV.  Tiền xử lý:
 V.  Dự đoán:
 
 VI.  Tổng quan dữ liệu:
+- Dữ liệu sau khi xử lý có 3638 dòng và 45 cột.
+  - temp: là nhiệt độ.
+  - dewPt: là điểm sương.
+  - press: là áp suất.
+  - humid: là độ ẩm.
+  - wdir: là hướng gió.
+  - wspeed: là tốc độ gió.
+  - rain: là tỉ lệ mưa trong ngày.
+  - is_rain: là ngày hôm đó có mưa hay không.
+  - Postfix _min, _max, 
 
 VII.  Tự đánh giá:
 
 VIII.  Hướng dẫn chạy các file notebook:
+1.  Thu thập dữ liệu:
+- Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
+2.  Tiền xử lý:
+- Mở và run all file Clean_API nếu muốn tiền xử lý dữ liệu lấy bằng api hoặc Clean_HTML đối với html.
+3.  Dự đoán:
+- Mở và run all file Predict để train và predict dữ liệu đã thu thập được.
