@@ -23,7 +23,7 @@ I.  Crawl:
 
 2.   Qua HTML:
 - Do trang web sử dụng javascript để render dữ liệu cần lấy nên phải dùng web driver để chạy javascript.
-- Đầu tiên sẽ dùng selenium vô trang cần lấy và đổi sang hệ metric:
+- Đầu tiên sẽ dùng selenium vô trang cần lấy và đổi sang hệ metric:  
 ![alt images/html_1.png](images/html_1.png)
 - Do thời gian crawl khá lâu nên để tránh các vấn đề có thể xảy ra như rớt mạng..., trước tiên lưu phần html chứa dữ liệu cần lấy ở [data_html/html/](data_html/html/):
 ![alt images/html_1.png](images/html_2.png)
