@@ -23,6 +23,9 @@ I.  Crawl:
 - Do trang web sử dụng javascript để render dữ liệu cần lấy nên phải dùng web driver để chạy javascript.
 - Đầu tiên sẽ dùng selenium vô trang cần lấy và đổi sang hệ metric:
 ![alt images/html_1.png](images/html_1.png)
+- Tiếp theo lưu phần html chứa dữ liệu cần lấy ở [data_html/html/](data_html/html/). Do mỗi trang lấy được 1 ngày nên sẽ lưu tên file bằng ngày:
+![alt images/html_1.png](images/html_2.png)
+
 
 II.  Preprocessing:
 
