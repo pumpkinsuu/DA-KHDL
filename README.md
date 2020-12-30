@@ -45,16 +45,26 @@ IV.  Tiền xử lý:
 V.  Dự đoán:
 
 VI.  Tổng quan dữ liệu:
+- Dữ liệu có 171694 dòng và 45 cột(ở đây sẽ lấy 8 cột được dùng còn những cột khác do api document không tồn tại nữa nên không biết được):
+  - valid_time_gmt: là epoch time, kiểu dữ liệu int64(1262286000).
+  - temp: là nhiệt độ, kiểu dữ liệu là float64(24.0).
+  - dewPt: là điểm sương, kiểu dữ liệu là float64(21.0).
+  - pressure: là áp suất, kiểu dữ liệu là float64(1008.8).
+  - rh: là độ ẩm, kiểu dữ liệu là float64(83.0).
+  - wdir_cardinal: là hướng gió, kiểu dữ liệu là object('SE').
+  - wspd: là tốc độ gió, kiểu dữ liệu là float64(6.0).
+  - wx_phrase: là thời tiết, kiểu dữ liệu là object('Fair').
 - Dữ liệu sau khi xử lý có 3638 dòng và 45 cột.
-  - temp: là nhiệt độ.
-  - dewPt: là điểm sương.
-  - press: là áp suất.
-  - humid: là độ ẩm.
-  - wdir: là hướng gió.
-  - wspeed: là tốc độ gió.
+  - temp: là nhiệt độ trung bình.
+  - dewPt: là điểm sương trung bình.
+  - press: là áp suất trung bình.
+  - humid: là độ ẩm trung bình.
+  - wdir: là hướng gió trung bình.
+  - wspeed: là tốc độ gió trung bình.
   - rain: là tỉ lệ mưa trong ngày.
   - is_rain: là ngày hôm đó có mưa hay không.
-  - Postfix _min, _max, 
+  - 1 là ngày đầu tiên, 2 là ngày tiếp theo và y_* là các cột của ngày cần dự đoán(ngày thứ 3).
+- Cột cần dự đoán là nhiệt độ(y_temp, y_temp_min, y_temp_max), tỉ lệ mưa(y_rain) và có mưa hay không(y_is_rain).
 
 VII.  Tự đánh giá:
 
