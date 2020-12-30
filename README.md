@@ -66,7 +66,8 @@ IV.  Tổng quan dữ liệu:
 ![alt images/data_3.png](images/data_3.png)
 
 V.  Tiền xử lý:
-- 
+- Dữ liệu thời gian sẽ được đưa về datetime và múi giờ Hồ Chí Minh đối với API còn HTML thì chỉ đổi từ 12H sang 24H.  
+![alt images/clean_1.png](images/clean_1.png)
 - Do dữ liệu thời tiết liên tục(30 phút cập nhật một lần), thay đổi khá chậm và dữ liệu thiếu rất ít nên các dữ liệu thiếu sẽ được thay thế bởi dữ liệu gần nó.
 - Dữ liệu thuộc tính sẽ đưa về dạng số.
 - Cột thời tiết(wx_phrase) sẽ được đổi thành có mưa hoặc không thông qua hàm 'is_rain(weather)'.
