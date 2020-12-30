@@ -77,7 +77,9 @@ V.  Tiền xử lý:
 - Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
 
 VI.  Dự đoán:
-- 
+- Dữ liệu sẽ chia thành 2: 80% train và 20% test.
+-
+
 VII.  Tự đánh giá:
 
 VIII.  Hướng dẫn chạy các file notebook:
