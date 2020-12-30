@@ -51,6 +51,7 @@ IV.  Tổng quan dữ liệu:
   - wspd: là tốc độ gió, kiểu dữ liệu là float64(6.0).
   - wx_phrase: là thời tiết, kiểu dữ liệu là object('Fair').  
   ![alt images/data_1.png](images/data_1.png)
+  
 - Dữ liệu sau khi xử lý có 3638 dòng và 45 cột.
   - temp: là nhiệt độ trung bình.
   - dewPt: là điểm sương trung bình.
