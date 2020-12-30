@@ -42,14 +42,15 @@ III.  Cách thức thu thập dữ liệu:
 
 IV.  Tổng quan dữ liệu:
 - Dữ liệu có 171694 dòng và 45 cột(ở đây sẽ lấy 8 cột được dùng còn những cột khác do api document không tồn tại nữa nên không biết được):
-  - valid_time_gmt: là epoch time, kiểu dữ liệu int64(1262286000).
+  - valid_time_gmt(đối với API, còn HTML thì khi lấy đã tạo ngày sẵn 'date'): là epoch time, kiểu dữ liệu int64(1262286000).
   - temp: là nhiệt độ, kiểu dữ liệu là float64(24.0).
   - dewPt: là điểm sương, kiểu dữ liệu là float64(21.0).
   - pressure: là áp suất, kiểu dữ liệu là float64(1008.8).
   - rh: là độ ẩm, kiểu dữ liệu là float64(83.0).
   - wdir_cardinal: là hướng gió, kiểu dữ liệu là object('SE').
   - wspd: là tốc độ gió, kiểu dữ liệu là float64(6.0).
-  - wx_phrase: là thời tiết, kiểu dữ liệu là object('Fair').
+  - wx_phrase: là thời tiết, kiểu dữ liệu là object('Fair').  
+  ![alt images/data_1.png](images/data_1.png)
 - Dữ liệu sau khi xử lý có 3638 dòng và 45 cột.
   - temp: là nhiệt độ trung bình.
   - dewPt: là điểm sương trung bình.
@@ -59,10 +60,17 @@ IV.  Tổng quan dữ liệu:
   - wspeed: là tốc độ gió trung bình.
   - rain: là tỉ lệ mưa trong ngày.
   - is_rain: là ngày hôm đó có mưa hay không.
-  - 1 là ngày đầu tiên, 2 là ngày tiếp theo và y_* là các cột của ngày cần dự đoán(ngày thứ 3).
-- Cột cần dự đoán là nhiệt độ(y_temp, y_temp_min, y_temp_max), tỉ lệ mưa(y_rain) và có mưa hay không(y_is_rain).
+  - 1 là ngày đầu tiên, 2 là ngày tiếp theo và y_* là các cột của ngày cần dự đoán(ngày thứ 3).  
+  ![alt images/data_2.png](images/data_2.png)
+- Cột cần dự đoán là nhiệt độ(y_temp, y_temp_min, y_temp_max), tỉ lệ mưa(y_rain) và có mưa hay không(y_is_rain).  
+![alt images/data_3.png](images/data_3.png)
 
 V.  Tiền xử lý:
+- 
+- Do dữ liệu thời tiết liên tục(30 phút cập nhật một lần), thay đổi khá chậm và dữ liệu thiếu rất ít nên các dữ liệu thiếu sẽ được thay thế bởi dữ liệu gần nó.
+- Dữ liệu thuộc tính sẽ đưa về dạng số.
+- Cột thời tiết(wx_phrase) sẽ được đổi thành có mưa hoặc không thông qua hàm 'is_rain(weather)'.
+- Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
 
 VI.  Dự đoán:
 
