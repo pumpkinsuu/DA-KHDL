@@ -40,11 +40,7 @@ III.  Cách thức thu thập dữ liệu:
 - Dữ liệu sẽ được lưu trong ở [data_html/data.csv](data_html/data.csv).
 - Lấy được tổng cộng 171694 hàng dữ liệu trong 22 phút. Tổng thời gian crawl khoảng 1 giờ 20 phút.
 
-IV.  Tiền xử lý:
-
-V.  Dự đoán:
-
-VI.  Tổng quan dữ liệu:
+IV.  Tổng quan dữ liệu:
 - Dữ liệu có 171694 dòng và 45 cột(ở đây sẽ lấy 8 cột được dùng còn những cột khác do api document không tồn tại nữa nên không biết được):
   - valid_time_gmt: là epoch time, kiểu dữ liệu int64(1262286000).
   - temp: là nhiệt độ, kiểu dữ liệu là float64(24.0).
@@ -65,6 +61,10 @@ VI.  Tổng quan dữ liệu:
   - is_rain: là ngày hôm đó có mưa hay không.
   - 1 là ngày đầu tiên, 2 là ngày tiếp theo và y_* là các cột của ngày cần dự đoán(ngày thứ 3).
 - Cột cần dự đoán là nhiệt độ(y_temp, y_temp_min, y_temp_max), tỉ lệ mưa(y_rain) và có mưa hay không(y_is_rain).
+
+V.  Tiền xử lý:
+
+VI.  Dự đoán:
 
 VII.  Tự đánh giá:
 
