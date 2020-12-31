@@ -89,12 +89,12 @@ Ví dụ: nếu dự đoán ngày mai có mưa với tỉ lệ 90% thì chúng t
 - Cột cần dự đoán là nhiệt độ(y_temp, y_temp_min, y_temp_max), tỉ lệ mưa(y_rain) và có mưa hay không(y_is_rain).  
 ![alt images/data_3.png](images/data_3.png)
 
-V.  Tiền xử lý:
+## V.  Tiền xử lý:
 - Dữ liệu thời gian sẽ được đưa về datetime và múi giờ Hồ Chí Minh đối với API còn HTML thì chỉ đổi từ 12H sang 24H.  
 ![alt images/clean_1.png](images/clean_1.png)
 - Do dữ liệu thời tiết liên tục(30 phút cập nhật một lần), thay đổi khá chậm và dữ liệu thiếu rất ít nên các dữ liệu thiếu sẽ được thay thế bởi dữ liệu gần nó.
 - Dữ liệu thuộc tính sẽ đưa về dạng số.
-- Cột thời tiết(wx_phrase) sẽ được đổi thành có mưa hoặc không thông qua hàm 'is_rain(weather)'.
+- Cột thời tiết(wx_phrase) sẽ được đổi thành có mưa hoặc không thông qua hàm 'is_rain(weather)'.  
 ![alt images/clean_2.png](images/clean_2.png)
 ![alt images/clean_3.png](images/clean_3.png)
 - Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
