@@ -141,10 +141,12 @@ Dùng Logistic regression để phân loại, dự đoán thông số `có mưa 
 
 ## VIII.  Hướng dẫn chạy các file notebook:
 
-- Yêu cầu thư viện: pandas, tensorflow, sklearn, progressbar, matplotpib
+- Yêu cầu thư viện: pandas, tensorflow, sklearn, progressbar, matplotlib, selenium, bs4
   
 ### 1.  Thu thập dữ liệu:
 - Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
+- Đối với Crawl_HTML phải đổi chrome_path:  
+![alt images/hd_1.png](images/hd_1.png)
 ### 2.  Tiền xử lý:
 - Mở và run all file Clean_API nếu muốn tiền xử lý dữ liệu lấy bằng api hoặc Clean_HTML đối với html.
 ### 3. Phân tích dữ liệu
