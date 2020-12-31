@@ -143,7 +143,7 @@ Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nh
 - Tổng quan kết quả:
   
 | Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
-|-------|------------------|----------------------------|-----------------------------------|
+|-------|------------------|-----------------------------------|
 | Nhiệt độ trung bình (độ C) | 0.8 | 0.67 |
 | Nhiệt độ cao nhất (độ C) | 1.13 | 1.17 |
 | Nhiệt độ thấp nhất (độ C) | 1.13 | 0.81 |
@@ -151,7 +151,7 @@ Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nh
 ![](images/dnn-history.png)
 
 | Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
-|-------|------------------|----------------------------|-----------------------------------|
+|-------|------------------|-----------------------------------|
 | Tỉ lệ có mưa | 0.12 | 0.09 |
 
 ![](images/dnn-rain-history.png)
