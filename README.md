@@ -120,7 +120,7 @@ Dùng Logistic regression để phân loại, dự đoán thông số `có mưa 
 
 | Thông số dự đoán | Accuracy | TPR | FPR |
 |-------|------------------|----------------------------|-----------------------------------|
-| Có mưa hay không | 0.71 | 0.85 | 0.13 |
+| Có mưa hay không | 0.85 | 0.71 | 0.13 |
 
 ## VII.  Tự đánh giá:
 
