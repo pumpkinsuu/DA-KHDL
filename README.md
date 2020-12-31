@@ -19,14 +19,14 @@ Phân công công việc:
 
 Dự đoán thời tiết trong tương lai gần (nhiệt độ, trời có mưa không) dựa vào các thông số thời tiết (nhiệt độ, độ ẩm, tốc độ gió,...) của những ngày trước đó.  
 Cụ thể: dự đoán `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`, `tỉ lệ có mưa` và dự đoán `có mưa hay không` của 1 ngày dựa vào các thông số của 2 ngày trước đó bao gồm:  
-    - `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`
-    - `điểm sương trung bình`, `điểm sương thấp nhất`, `điểm sướng nhất`
-    - `áp suất trung bình`, `áp suất thấp nhất`, `áp suất cao nhất`
-    - `độ ẩm trung bình`, `độ ẩm thấp nhất`, `độ ẩm cao nhất`
-    - `hướng gió trung bình`, `hướng gió thấp nhất theo độ`, `hướng gió cao nhất theo độ`
-    - `tốc độ gió trung bình`, `tốc độ gió nhất nhất`, `tốc độ gió cao nhất`
-    - `tỉ lệ có mưa`, đây là tỉ lệ có mưa đã dự đoán cho ngày hôm đó của nguồn cung cấp data, vì đài dự đoán sẽ chính xác hơn nên giá trị này cũng rất có ý nghĩa
-    - `hôm đó có mưa hay không`
+  - `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`
+  - `điểm sương trung bình`, `điểm sương thấp nhất`, `điểm sướng nhất`
+  - `áp suất trung bình`, `áp suất thấp nhất`, `áp suất cao nhất`
+  - `độ ẩm trung bình`, `độ ẩm thấp nhất`, `độ ẩm cao nhất`
+  - `hướng gió trung bình`, `hướng gió thấp nhất theo độ`, `hướng gió cao nhất theo độ`
+  - `tốc độ gió trung bình`, `tốc độ gió nhất nhất`, `tốc độ gió cao nhất`
+  - `tỉ lệ có mưa`, đây là tỉ lệ có mưa đã dự đoán cho ngày hôm đó của nguồn cung cấp data, vì đài dự đoán sẽ chính xác hơn nên giá trị này cũng rất có ý nghĩa
+  - `hôm đó có mưa hay không`
     
 
 ## II.  Ý nghĩa:
@@ -99,10 +99,10 @@ V.  Tiền xử lý:
 - Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
 
 ## VI.  Training và Dự đoán:
-#### Dữ liệu sẽ chia thành 2: 80% train và 20% test.
-#### Kết quả training
+### Dữ liệu sẽ chia thành 2: 80% train và 20% test.
+### Kết quả training
 
-##### Linear Regression
+**Linear Regression**
 
 Linear regression dự đoán các thông số regression
 
@@ -113,13 +113,13 @@ Linear regression dự đoán các thông số regression
 | Nhiệt độ thấp nhất (độ C) | 0.7 | 0.72 | 0.6 |
 | Tỉ lệ có mưa | 0.28 | 0.04 | 0.02 |
 
-##### Logistic Regression classifier
+**Logistic Regression classifier**
 
 Dùng Logistic regression để phân loại, dự đoán thông số `có mưa hay không`
 
 | Thông số dự đoán | Accuracy | Tỉ lệ trả có lời khi kết quả là có | STỉ lệ trả lời có khi kết quả là không |
 |-------|------------------|----------------------------|-----------------------------------|
-| Có mưa hay không | 0.71 | 0.6 | 0.47 |
+| Có mưa hay không | 0.71 | 0.85 | 0.13 |
 
 ## VII.  Tự đánh giá:
 
