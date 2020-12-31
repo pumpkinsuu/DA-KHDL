@@ -141,18 +141,18 @@ Dùng Logistic regression để phân loại, dự đoán thông số `có mưa 
 Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`. Một model cho biến `tỉ lệ mưa` và một model cho biến `có mưa hay không `.
 
 - Tổng quan kết quả:
-  
-| Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
-|-------|------------------|-----------------------------------|
-| Nhiệt độ trung bình (độ C) | 0.8 | 0.67 |
-| Nhiệt độ cao nhất (độ C) | 1.13 | 1.17 |
-| Nhiệt độ thấp nhất (độ C) | 1.13 | 0.81 |
+
+| Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |  
+|-------|------------------|-----------------------------------|  
+| Nhiệt độ trung bình (độ C) | 0.8 | 0.67 |  
+| Nhiệt độ cao nhất (độ C) | 1.13 | 1.17 |  
+| Nhiệt độ thấp nhất (độ C) | 1.13 | 0.81 |  
 
 ![](images/dnn-history.png)
 
-| Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
-|-------|------------------|-----------------------------------|
-| Tỉ lệ có mưa | 0.12 | 0.09 |
+| Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |  
+|-------|------------------|-----------------------------------|  
+| Tỉ lệ có mưa | 0.12 | 0.09 |  
 
 ![](images/dnn-rain-history.png)
 
@@ -188,7 +188,7 @@ Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nh
 
 ## VIII.  Hướng dẫn chạy các file notebook:
 
-- Yêu cầu thư viện: pandas, tensorflow, sklearn, progressbar, matplotlib, selenium, bs4
+- Yêu cầu thư viện: pandas, keras, sklearn, progressbar, matplotlib, selenium, bs4
   
 ### 1.  Thu thập dữ liệu:
 - Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
