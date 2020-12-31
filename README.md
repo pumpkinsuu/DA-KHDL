@@ -9,8 +9,8 @@ Phân công công việc:
 
 |Thành viên|Công việc|
 |----------|---------|
-|Nguyễn Minh Đức|Phân tích dữ liệu, build model DNN, bình luận, dự đoán|
-|Đặng Thành Duy|Thu thập dữ liệu API, crawl dữ liệu qua HTML, tiền sử lý và xử lý dữ liệu,  train model linear, train model logistic, dự đoán|
+|Nguyễn Minh Đức|Phân tích dữ liệu, build model DNN, train model logistic, bình luận, dự đoán|
+|Đặng Thành Duy|Thu thập dữ liệu API, crawl dữ liệu qua HTML, tiền xử lý và xử lý dữ liệu,  train model linear, train model logistic, dự đoán|
 
 
 # Chủ đề: Dự báo thời tiết
@@ -118,7 +118,7 @@ Linear regression dự đoán các thông số regression
 
 Dùng Logistic regression để phân loại, dự đoán thông số `có mưa hay không`
 
-| Thông số dự đoán | Accuracy | Tỉ lệ trả có lời khi kết quả là có | STỉ lệ trả lời có khi kết quả là không |
+| Thông số dự đoán | Accuracy | TPR | FPR |
 |-------|------------------|----------------------------|-----------------------------------|
 | Có mưa hay không | 0.71 | 0.85 | 0.13 |
 
@@ -140,9 +140,16 @@ Dùng Logistic regression để phân loại, dự đoán thông số `có mưa 
 - Nghiên cứu khoa học về thời tiết.
 
 ## VIII.  Hướng dẫn chạy các file notebook:
+
+- Yêu cầu file data phải được đặt đúng vị trí như tại repo github này
+
+- Yêu cầu thư viện: pandas, tensorflow, sklearn, progressbar, matplotpib
+- 
 ### 1.  Thu thập dữ liệu:
 - Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
 ### 2.  Tiền xử lý:
 - Mở và run all file Clean_API nếu muốn tiền xử lý dữ liệu lấy bằng api hoặc Clean_HTML đối với html.
 ### 3.  Dự đoán:
 - Mở và run all file Predict để train và predict dữ liệu đã thu thập được.
+### 4. Chạy file analysis
+- Mở và run all file Analysis để xem quá trình phân tích dữ liệu
