@@ -7,18 +7,40 @@ MSSV: 1712379   Họ và tên: Đặng Thành Duy
 
 Phân công công việc:
 
+|Thành viên|Công việc|
+|----------|---------|
+|Nguyễn Minh Đức|Phân tích dữ liệu, build model DNN, bình luận, dự đoán|
+|Đặng Thành Duy|Thu thập dữ liệu API, crawl dữ liệu qua HTML, tiền sử lý và xử lý dữ liệu,  train model linear, train model logistic, dự đoán|
+
+
 # Chủ đề: Dự báo thời tiết
 
-I.  Câu hỏi:
+## I.  Câu hỏi:
 
-II.  Ý nghĩa:
+Dự đoán thời tiết trong tương lai gần (nhiệt độ, trời có mưa không) dựa vào các thông số thời tiết (nhiệt độ, độ ẩm, tốc độ gió,...) của những ngày trước đó.  
+Cụ thể: dự đoán `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`, `tỉ lệ có mưa` và dự đoán `có mưa hay không` của 1 ngày dựa vào các thông số của 2 ngày trước đó bao gồm:  
+    - `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`
+    - `điểm sương trung bình`, `điểm sương thấp nhất`, `điểm sướng nhất`
+    - `áp suất trung bình`, `áp suất thấp nhất`, `áp suất cao nhất`
+    - `độ ẩm trung bình`, `độ ẩm thấp nhất`, `độ ẩm cao nhất`
+    - `hướng gió trung bình`, `hướng gió thấp nhất theo độ`, `hướng gió cao nhất theo độ`
+    - `tốc độ gió trung bình`, `tốc độ gió nhất nhất`, `tốc độ gió cao nhất`
+    - `tỉ lệ có mưa`, đây là tỉ lệ có mưa đã dự đoán cho ngày hôm đó của nguồn cung cấp data, vì đài dự đoán sẽ chính xác hơn nên giá trị này cũng rất có ý nghĩa
+    - `hôm đó có mưa hay không`
+    
 
-III.  Cách thức thu thập dữ liệu:
+## II.  Ý nghĩa:
+
+**Việc dự đoán thời tiết rất quan trọng trong sinh hoạt thường ngày của con người, ảnh hưởng tới học tập, công việc, đi lại, tổ chức sự kiện... Việc cung cấp các thông số dự đoán về nhiệt độ và đặc biệt là dự báo có mưa hay không giúp người dùng dự trù trước, chuẩn bị trước cho công việc, đi lại và sinh hoạt**
+
+Ví dụ: nếu dự đoán ngày mai có mưa với tỉ lệ 90% thì chúng ta nên ra đường với ô dù hoặc áo mưa, các sự kiện ngoài trời nên được hủy hoặc di dời.
+
+## III.  Cách thức thu thập dữ liệu:
 - Chọn https://www.wunderground.com để lấy dữ liệu. Trang này có rất nhiều trạm thời tiết để lấy dữ liệu và độ chính xác khá cao. Ngoài ra có thể crawl api và html nên dữ liệu crawl bằng 2 cách sẽ đồng nhất.
 - Dữ liệu được lấy trong 10 năm từ 2010 đến 2020.
 - Dữ liệu được lấy từ trạm thời tiết ở sân bay Tân Sơn Nhất(VVTS).
 
-1.  Qua API:
+### 1.  Qua API:
 - Do trang API đã đóng cửa từ lâu nên sẽ dùng public api key bằng cách crawl html, search từ khóa apiKey.
 - Sau đó sử dụng requests để crawl api thông qua đường dẫn lấy được thông qua browser Devtools>Network>XHR:  
 ![alt images/api_1.png](images/api_1.png)  
@@ -27,7 +49,7 @@ III.  Cách thức thu thập dữ liệu:
 - Dữ liệu sẽ được lưu trong ở [data/data.csv](data/data.csv).
 - Lấy được tổng cộng 171694 hàng dữ liệu trong 2 phút.
 
-2.   Qua HTML:
+### 2.   Qua HTML:
 - Do trang web sử dụng javascript để render dữ liệu cần lấy nên phải dùng web driver để chạy javascript.
 - Đầu tiên sẽ dùng selenium vô trang cần lấy và đổi sang hệ metric:  
 ![alt images/html_1.png](images/html_1.png)
@@ -40,7 +62,7 @@ III.  Cách thức thu thập dữ liệu:
 - Dữ liệu sẽ được lưu trong ở [data_html/data.csv](data_html/data.csv).
 - Lấy được tổng cộng 171694 hàng dữ liệu trong 22 phút. Tổng thời gian crawl khoảng 1 giờ 20 phút.
 
-IV.  Tổng quan dữ liệu:
+## IV.  Tổng quan dữ liệu:
 - Dữ liệu có 171694 dòng và 45 cột(ở đây sẽ lấy 8 cột được dùng còn những cột khác do api document không tồn tại nữa nên không biết được):
   - valid_time_gmt(đối với API, còn HTML thì khi lấy đã tạo ngày sẵn 'date'): là epoch time, kiểu dữ liệu int64(1262286000).
   - temp: là nhiệt độ, kiểu dữ liệu là float64(24.0).
@@ -76,16 +98,50 @@ V.  Tiền xử lý:
 ![alt images/clean_3.png](images/clean_3.png)
 - Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
 
-VI.  Dự đoán:
-- Dữ liệu sẽ chia thành 2: 80% train và 20% test.
--
+## VI.  Training và Dự đoán:
+#### Dữ liệu sẽ chia thành 2: 80% train và 20% test.
+#### Kết quả training
 
-VII.  Tự đánh giá:
+##### Linear Regression
 
-VIII.  Hướng dẫn chạy các file notebook:
-1.  Thu thập dữ liệu:
+Linear regression dự đoán các thông số regression
+
+| Thông số dự đoán | Phương sai giữa model và tập train | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
+|-------|------------------|----------------------------|-----------------------------------|
+| Nhiệt độ trung bình (độ C) | 0.71 | 0.6 | 0.47 |
+| Nhiệt độ cao nhất (độ C) | 0.69 | 0.77 | 0.63 |
+| Nhiệt độ thấp nhất (độ C) | 0.7 | 0.72 | 0.6 |
+| Tỉ lệ có mưa | 0.28 | 0.04 | 0.02 |
+
+##### Logistic Regression classifier
+
+Dùng Logistic regression để phân loại, dự đoán thông số `có mưa hay không`
+
+| Thông số dự đoán | Accuracy | Tỉ lệ trả có lời khi kết quả là có | STỉ lệ trả lời có khi kết quả là không |
+|-------|------------------|----------------------------|-----------------------------------|
+| Có mưa hay không | 0.71 | 0.6 | 0.47 |
+
+## VII.  Tự đánh giá:
+
+**Kết quả**
+- Hoàn thành trả lời được câu hỏi đã đưa ra (dự đoán với độ chính xác khá cao)
+- Hoàn thành tất cả các bước trong một quy trình dữ liệu: đặt câu hỏi, thu thập dữ liệu, xử lý dữ liệu, phân tích dữ liệu, train model và trả lời câu hỏi.
+- Học hỏi được rất nhiều về data, quá trình thu thập, xử lý, phân tích dữ liệu. Biết cách xây dựng và sử dụng các model học máy.
+
+**Thiếu sót**
+- Câu hỏi còn khá đơn giản, chưa trả lời được chi tiết về các thông số thời tiết
+- Model áp dụng còn khá đơn giản
+- Chưa có nghiên cứu kỹ về khoa học thời tiết, nếu có kiến thức về mảng này thì có thể đưa vào model pretrain những dự kiến của trainer từ đó giúp model chính xác hơn.
+
+**Hướng phát triển thêm**
+- Mở rộng câu hỏi, cần dự đoán chi tiết hơn (trời mưa to không, gió có mạnh không, trời có âm u không, mưa vào thời gian nào trong ngày,...). Từ câu hỏi này có thể dẫn tới việc thu tập dữ liệu khác đi rất nhiều.
+- Áp dụng các model mạnh hơn, mới hơn (thường thì sẽ phức tạp hơn). Có thể dẫn tới nhu câu thu thập lại dữ liệu.
+- Nghiên cứu khoa học về thời tiết.
+
+## VIII.  Hướng dẫn chạy các file notebook:
+### 1.  Thu thập dữ liệu:
 - Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
-2.  Tiền xử lý:
+### 2.  Tiền xử lý:
 - Mở và run all file Clean_API nếu muốn tiền xử lý dữ liệu lấy bằng api hoặc Clean_HTML đối với html.
-3.  Dự đoán:
+### 3.  Dự đoán:
 - Mở và run all file Predict để train và predict dữ liệu đã thu thập được.
