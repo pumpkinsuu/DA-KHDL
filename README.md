@@ -145,6 +145,8 @@ Dùng Logistic regression để phân loại, dự đoán thông số `có mưa 
   
 ### 1.  Thu thập dữ liệu:
 - Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
+- Đối với Crawl_HTML phải đổi chrome_path:  
+![alt images/hd_1.png](images/hd_1.png)
 ### 2.  Tiền xử lý:
 - Mở và run all file Clean_API nếu muốn tiền xử lý dữ liệu lấy bằng api hoặc Clean_HTML đối với html.
 ### 3. Phân tích dữ liệu
