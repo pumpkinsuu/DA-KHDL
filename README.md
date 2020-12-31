@@ -17,7 +17,8 @@ Phân công công việc:
 
 ## I.  Câu hỏi:
 
-Dự đoán thời tiết trong tương lai gần (nhiệt độ, trời có mưa không) dựa vào các thông số thời tiết (nhiệt độ, độ ẩm, tốc độ gió,...) của những ngày trước đó.  
+**Dự đoán thời tiết trong tương lai gần (nhiệt độ, trời có mưa không) dựa vào các thông số thời tiết (nhiệt độ, độ ẩm, tốc độ gió,...) của những ngày trước đó.**
+
 Cụ thể: dự đoán `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`, `tỉ lệ có mưa` và dự đoán `có mưa hay không` của 1 ngày dựa vào các thông số của 2 ngày trước đó bao gồm:  
   - `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`
   - `điểm sương trung bình`, `điểm sương thấp nhất`, `điểm sướng nhất`
