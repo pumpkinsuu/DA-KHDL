@@ -200,7 +200,7 @@ Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nh
 
 ## VIII.  Hướng dẫn chạy các file notebook:
 
-- Yêu cầu thư viện: pandas, keras, sklearn, progressbar, matplotlib, selenium, bs4
+- Yêu cầu thư viện: pandas, keras, tensorflow, sklearn, progressbar, matplotlib, selenium, bs4
   
 ### 1.  Thu thập dữ liệu:
 - Mở và run all file Crawl_API nếu muốn crawl api hoặc Crawl_HTML đối với html.
