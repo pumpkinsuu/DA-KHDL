@@ -140,7 +140,7 @@ Dùng Logistic regression để phân loại, dự đoán thông số `có mưa 
 
 Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`. Một model cho biến `tỉ lệ mưa` và một model cho biến `có mưa hay không `.
 
-- Tổng quan kết quả:
+- Tổng quan kết quả model cho `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`.
 
 | Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |  
 |-------|------------------|-----------------------------------|  
@@ -150,11 +150,23 @@ Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nh
 
 ![](images/dnn-history.png)
 
+- Một số dự đoán của model trên tập test
+  
+![](images/dnn-temp.png)
+![](images/dnn-temp-min.png)
+![](images/dnn-temp-max.png)
+
+- Tổng quan kết quả model cho biến `tỉ lệ mưa`
+  
 | Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |  
 |-------|------------------|-----------------------------------|  
 | Tỉ lệ có mưa | 0.12 | 0.09 |  
 
 ![](images/dnn-rain-history.png)
+
+- Một số dự đoán của model trên tập test
+  
+![](images/dnn-rain.png)
 
 | Thông số dự đoán | Accuracy | TPR | FPR |
 |-------|------------------|----------------------------|-----------------------------------|
@@ -165,8 +177,8 @@ Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nh
 ### 4. Nhận xét
 
 - Cả 3 dạng model đều có thời gian train rất nhanh, hầu như chỉ trong tích tắc đã hoàn thành.
-- Linear regression có độ chính xác khá cao, cao hơn một mạng DNN trong trường hợp này, nhưng phải dùng tới 4 model để train cho 4 biến khác nhau và không thể dùng cho biến nhị phân.
-- Logistic regression classifier có độ chính xác khi dự đoán trời mưa rất cao, mặc dù chỉ dùng được cho 1 mình biến nhị phân `có mưa hay không`.
+- Linear regression có độ chính xác khá cao, cao hơn một mạng DNN trong trường hợp này, nhưng phải dùng tới 4 model để train cho 4 biến khác nhau và không thể dùng cho biến nhị phân. Mặc dù là không thể dùng cho biến nhị phân nhưng linear regression vẫn dùng được cho biến tỉ lệ mưa, độ chính xác vẫn khá cao nên vẫn dự đoán trời mưa hay không được.
+- Logistic regression classifier có độ chính xác khi dự đoán trời mưa rất cao, mặc dù chỉ dùng được cho 1 mình biến nhị phân `có mưa hay không`. Nhóm quyết định dùng kết quả của Logistic regression để đại diện cho độ chính dự đoán trời mưa của project.
 - Mạng DNN tuy phức tạp hơn nhưng lại không đạt được accuracy như 2 model ở trên, có thể train cho nhiều biến cùng lúc, rất có tiềm năng phát triển, độ chính xác chưa cao có thể là do trình độ của người lập trình.
 
 ## VII.  Tự đánh giá:
