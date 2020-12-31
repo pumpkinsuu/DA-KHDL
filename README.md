@@ -94,7 +94,7 @@ V.  Tiền xử lý:
 ![alt images/clean_1.png](images/clean_1.png)
 - Do dữ liệu thời tiết liên tục(30 phút cập nhật một lần), thay đổi khá chậm và dữ liệu thiếu rất ít nên các dữ liệu thiếu sẽ được thay thế bởi dữ liệu gần nó.
 - Dữ liệu thuộc tính sẽ đưa về dạng số.
-- Cột thời tiết(wx_phrase) sẽ được đổi thành có mưa hoặc không thông qua hàm 'is_rain(weather)'.
+- Cột thời tiết(wx_phrase) sẽ được đổi thành có mưa hoặc không thông qua hàm 'is_rain(weather)'.  
 ![alt images/clean_2.png](images/clean_2.png)
 ![alt images/clean_3.png](images/clean_3.png)
 - Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
