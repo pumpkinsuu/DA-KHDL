@@ -100,13 +100,17 @@ Ví dụ: nếu dự đoán ngày mai có mưa với tỉ lệ 90% thì chúng t
 - Các hàng dữ liệu sẽ được gom lại theo ngày và lấy max, mean, min. Riêng với cột thời tiết sẽ tính là 1 nếu có 1 lần trong ngày mưa và cột 'rain' là tỉ lệ mưa trong 1 ngày.
 
 ## VI.  Training và Dự đoán:
-### Dữ liệu sẽ chia thành 2: 80% train và 20% test.
+
+Dữ liệu sẽ chia thành 2: 80% train và 20% test.
+
 ### Kết quả training
 
-**Linear Regression**
+### 1. Linear Regression
 
 Linear regression dự đoán các thông số regression
 
+- Tổng quan kết quả
+  
 | Thông số dự đoán | Phương sai giữa model và tập train | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
 |-------|------------------|----------------------------|-----------------------------------|
 | Nhiệt độ trung bình (độ C) | 0.71 | 0.6 | 0.47 |
@@ -114,13 +118,56 @@ Linear regression dự đoán các thông số regression
 | Nhiệt độ thấp nhất (độ C) | 0.7 | 0.72 | 0.6 |
 | Tỉ lệ có mưa | 0.28 | 0.04 | 0.02 |
 
-**Logistic Regression classifier**
+- Biểu đồ biểu thị một số dự đoán trên tập test
+
+![](images/linear-temp.png)
+![](images/linear-temp-min.png)
+![](images/linear-temp-max.png)
+![](images/linear-rain.png)
+
+### 2. Logistic Regression classifier
 
 Dùng Logistic regression để phân loại, dự đoán thông số `có mưa hay không`
 
+- Tổng quan kết quả:
+  
 | Thông số dự đoán | Accuracy | TPR | FPR |
 |-------|------------------|----------------------------|-----------------------------------|
 | Có mưa hay không | 0.85 | 0.71 | 0.13 |
+
+
+### 3. Deep neural networks
+
+Dùng riêng 3 model, một model cho 3 biến: `nhiệt độ trung bình`, `nhiệt độ thấp nhất`, `nhiệt độ cao nhất`. Một model cho biến `tỉ lệ mưa` và một model cho biến `có mưa hay không `.
+
+- Tổng quan kết quả:
+  
+| Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
+|-------|------------------|----------------------------|-----------------------------------|
+| Nhiệt độ trung bình (độ C) | 0.8 | 0.67 |
+| Nhiệt độ cao nhất (độ C) | 1.13 | 1.17 |
+| Nhiệt độ thấp nhất (độ C) | 1.13 | 0.81 |
+
+![](images/dnn-history.png)
+
+| Thông số dự đoán | Sai số trung bình trên tập test | Sai số trung vị trên tập test |
+|-------|------------------|----------------------------|-----------------------------------|
+| Tỉ lệ có mưa | 0.12 | 0.09 |
+
+![](images/dnn-rain-history.png)
+
+| Thông số dự đoán | Accuracy | TPR | FPR |
+|-------|------------------|----------------------------|-----------------------------------|
+| Có mưa hay không | 0.69 | 0.54 | 0.16 |
+
+![](images/dnn-is-rain-history.png)
+
+### 4. Nhận xét
+
+- Cả 3 dạng model đều có thời gian train rất nhanh, hầu như chỉ trong tích tắc đã hoàn thành.
+- Linear regression có độ chính xác khá cao, cao hơn một mạng DNN trong trường hợp này, nhưng phải dùng tới 4 model để train cho 4 biến khác nhau và không thể dùng cho biến nhị phân.
+- Logistic regression classifier có độ chính xác khi dự đoán trời mưa rất cao, mặc dù chỉ dùng được cho 1 mình biến nhị phân `có mưa hay không`.
+- Mạng DNN tuy phức tạp hơn nhưng lại không đạt được accuracy như 2 model ở trên, có thể train cho nhiều biến cùng lúc, rất có tiềm năng phát triển, độ chính xác chưa cao có thể là do trình độ của người lập trình.
 
 ## VII.  Tự đánh giá:
 
